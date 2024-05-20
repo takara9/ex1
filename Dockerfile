@@ -8,8 +8,10 @@ RUN pip install flask
 # アプリケーションのインストール
 RUN mkdir /app
 WORKDIR /app
+
 USER 65534:65534
 COPY --chown=65534:65534 app.py /app/app.py
+COPY --chown=65534:65534 app.log /app/app.log
 
 # コンテナの設定
 ENV FLASK_APP=app
