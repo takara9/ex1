@@ -3,8 +3,8 @@
 ## イメージのビルドと実行
 
 ```
-docker build -t ex1:1.4 .
-docker run --name ex1 --publish 9100:9100 --detach ex1:1.4
+docker build -t ex1:1.5 .
+docker run --name ex1 --publish 9100:9100 --detach ex1:1.5
 ```
 
 ## アクセス
@@ -25,8 +25,8 @@ docker exec -it ex1 bash
 export CR_PAT=YOUR_TOKEN
 export USERNAME=YOUR USERID
 echo $CR_PAT | docker login ghcr.io -u $USERNAME --password-stdin
-docker tag ex1:1.4 ghcr.io/takara9/ex1:1.4
-docker push ghcr.io/takara9/ex1:1.4
+docker tag ex1:1.4 ghcr.io/takara9/ex1:1.5
+docker push ghcr.io/takara9/ex1:1.5
 ```
 
 ## クリーンナップ
@@ -34,8 +34,8 @@ docker push ghcr.io/takara9/ex1:1.4
 ```
 docker stop ex1
 docker rm ex1
-docker rmi ghcr.io/takara9/ex1:1.4
-docker rmi ex1:1.4
+docker rmi ghcr.io/takara9/ex1:1.5
+docker rmi ex1:1.5
 ```
 
 
@@ -68,7 +68,7 @@ $ git branch -d update_branch
 ここで付与するTAGはコンテナイメージのタグになるので、リポジトリを確認して、タグ名を決めること。
 
 ```
-TAG=1.1
+TAG=1.5
 $ git tag -a $TAG -m "version $TAG"
 $ git push origin $TAG
 ```
