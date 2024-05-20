@@ -1,7 +1,8 @@
 import signal
 import sys
 import time
-from flask import Flask
+from flask import Flask, request
+from socket import gethostname, gethostbyname
 
 # ログ保存
 def logger(msg):
@@ -24,6 +25,18 @@ signal.signal(signal.SIGTERM, handler)
 # Webサービス
 app = Flask(__name__)
 logger("Start Web service\n")
+
+# ping応答
 @app.route("/ping")
-def webservice1():
+def ws_ping():
     return "PONG!"
+
+# ホスト情報
+@app.route("/info")
+def ws_info():
+    hostname = gethostname()
+    resp = ""
+    resp = resp + 'Host Name: %s' % hostname + "\n"
+    resp = resp + 'Host IP: %s' % gethostbyname(hostname) + "\n"
+    resp = resp + 'Client IP : %s' % request.remote_addr + "\n"
+    return resp
