@@ -3,7 +3,7 @@ FROM ubuntu:22.04
 
 # 依存するモジュールをインストール
 RUN apt-get update && apt-get install -y python3 python3-pip
-RUN pip install flask
+RUN pip3 install flask mysql-connector-python
 
 # アプリケーションのインストール
 RUN mkdir /app
