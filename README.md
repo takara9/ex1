@@ -62,7 +62,8 @@ CIが成功したら、add_apiブランチをmainブランチへマージする
 $ git checkout main
 $ git pull
 $ git branch -d update_branch
-'''
+```
+
 
 リリースするTAGを設定する。
 ここで付与するTAGはコンテナイメージのタグになるので、リポジトリを確認して、タグ名を決めること。
